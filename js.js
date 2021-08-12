@@ -27,7 +27,7 @@ function loadBooks(data){
         row.innerHTML += `
         <div class="col-md-4 my-2">
         <div class="card mb-4 shadow-sm h-100">
-        <img src="${book.img}" alt="" style="height: 10rem;  object-fit: cover;">
+        <img src="${book.img}" alt="" style="height: 15rem;  object-fit: cover;">
           <div class="card-body">
             <p class="card-text">${book.title}</p>
             <div
@@ -55,8 +55,8 @@ function loadButn(){
 function searchIt(info){
   info=info.toLowerCase()
 
-  if (info.length > 0){
-    justdata = dataBase.filter(data => data.title.toLowerCase().includes(info.toLowerCase))
+  if (info.length > 2){
+    justdata = dataBase.filter(data => data.title.toLowerCase().includes(info.toLowerCase()))
     console.log(justdata)
     loadBooks(justdata)
   }
@@ -94,7 +94,7 @@ function loadLiked(data){
       rowLiked.innerHTML += `
         <div class="col-md-4 my-2">
         <div class="card mb-4 shadow-sm h-100">
-        <img src="${book.img}" alt="" style="height: 10rem;  object-fit: cover;">
+        <img src="${book.img}" alt="" style="height: 15rem;  object-fit: cover;">
           <div class="card-body">
             <p class="card-text">${book.title}</p>
             <div
