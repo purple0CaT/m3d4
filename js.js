@@ -120,13 +120,22 @@ function showList(){
 
 function deleteCart(inf){
   const card = inf.parentElement.parentElement.parentElement.parentElement.parentElement
+
+  console.log(likedList[0].title)
+  console.log(card.querySelector('p').innerText)
+
+  likedList.forEach( liked => {
+    if(liked.title === card.querySelector('p').innerText){
+      let x = likedList.indexOf(liked)
+      likedList.splice(x,1)
+      console.log(x)
+    }
+  })
+
+  console.log(likedList)
   card.remove()
 
-  let liked = likedList.filter(data => data.title == card.querySelector('p').innerText )
-  liked = liked[0]
 
-  console.log(liked)
-  likedList.shift(liked)
 }
 
 
@@ -134,7 +143,11 @@ function clearList(){
   likedList=[]
   showList()
   let clearDoc = document.getElementById('likedBooks')
-  clearDoc.innerHTML = ''
+  clearDoc.innerHTML = `
+  <div class="col-12 text-center">
+  <h2 h2>Your cart list are Empty!</h2>
+</div>
+`
   let uncheckStyle = document.querySelectorAll('.card-body')
   uncheckStyle.forEach(card =>  card.classList.remove('pickedB')
   )
